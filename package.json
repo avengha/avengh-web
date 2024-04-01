@@ -1,0 +1,32 @@
+{
+  "name": "Avengers Fist",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "keywords": [
+    "bootstrap, html, css, js, website"
+  ],
+  "license": "",
+  "author": "Joseph Afriyie Attakorah",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.prod.js",
+    "start:dist": "npm run build && webpack serve --open --config webpack.config.dist.js"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "isotope-layout": "^3.0.6",
+    "jquery": "^3.7.1",
+    "swiper": "^11.0.7"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.9.0"
+  }
+}
