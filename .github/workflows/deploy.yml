@@ -1,9 +1,12 @@
 name: Deploy to GitHub Pages
 
 on:
+
   push:
     branches:
       - main
+
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -24,3 +27,4 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
+          token: ${{ secrets.GH_TOKEN }}
