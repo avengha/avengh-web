@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build
 
 on:
 
@@ -7,14 +7,6 @@ on:
       - main
 
   workflow_dispatch:
-
-permissions:
-  deployments: write
-  actions: write
-  contents: read
-  pages: write
-  repository-projects: read
-
 
 jobs:
   deploy:
