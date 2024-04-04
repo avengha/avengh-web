@@ -14,9 +14,9 @@ jobs:
       - name: 'Identify event type'
         id: identify-event
         run: |
-          echo "Event type: ${{ github.event.name }}"
+          echo "Event type: ${{ github.event_name }}"
           # Set output for conditional steps
-          if [[ ${{ github.event.name }} == 'issues' ]]; then
+          if [[ ${{ github.event_name }} == 'issues' ]]; then
             echo "::set-output name=event_type::issue"
           else
             echo "::set-output name=event_type::pull_request"
