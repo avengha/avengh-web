@@ -5,23 +5,31 @@ on:
   pull_request:
     types: [opened]
 jobs:
-  assign-issue:  # New job for issues
+  auto-assign:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      pull-requests: write
     steps:
-      - name: 'Auto-assign issue'
+      - name: 'Identify event type'
+        id: identify-event
+        run: |
+          echo "Event type: ${{ github.event.name }}"
+          # Set output for conditional steps
+          if [[ ${{ github.event.name }} == 'issues' ]]; then
+            echo "::set-output name=event_type::issue"
+          else
+            echo "::set-output name=event_type::pull_request"
+          fi
+      - name: 'Auto-assign (issue)'
+        if: steps.identify-event.outputs.event_type == 'issue'
         uses: pozil/auto-assign-issue@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: jib-data
           numOfAssignee: 1
-  assign-pull-request:  # New job for pull requests
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-    steps:
-      - name: 'Auto-assign pull request'
+      - name: 'Auto-assign (pull request)'
+        if: steps.identify-event.outputs.event_type == 'pull_request'
         uses: pozil/auto-assign-issue@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
