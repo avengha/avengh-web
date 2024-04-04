@@ -1,9 +1,11 @@
 name: Auto Assign
+
 on:
   issues:
     types: [opened]
   pull_request:
     types: [opened]
+
 jobs:
   assign-issue:  # New job for issues
     runs-on: ubuntu-latest
@@ -16,6 +18,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: jib-data
           numOfAssignee: 1
+
   assign-pull-request:  # New job for pull requests
     runs-on: ubuntu-latest
     permissions:
