@@ -5,15 +5,25 @@ on:
   pull_request:
     types: [opened]
 jobs:
-  run:
+  assign-issue:  # New job for issues
     runs-on: ubuntu-latest
     permissions:
       issues: write
-      pull-requests: write
     steps:
-    - name: 'Auto-assign issue'
-      uses: pozil/auto-assign-issue@v1
-      with:
+      - name: 'Auto-assign issue'
+        uses: pozil/auto-assign-issue@v1
+        with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: jib-data
+          numOfAssignee: 1
+  assign-pull-request:  # New job for pull requests
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: 'Auto-assign pull request'
+        uses: pozil/auto-assign-issue@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          assignees: jizzel
           numOfAssignee: 1
