@@ -43,7 +43,6 @@ module.exports = merge(common, {
         { from: 'robots.txt', to: 'robots.txt' },
         { from: 'icon.png', to: 'icon.png' },
         { from: 'site.webmanifest', to: 'site.webmanifest' },
-        { from: 'CNAME.txt', to: 'CNAME.txt'}
       ],
     }),
   ],
