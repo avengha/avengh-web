@@ -1,7 +1,7 @@
 {
   "name": "Avengers Fist",
   "version": "0.0.1",
-  "description": "",
+  "description": "Company website",
   "private": true,
   "keywords": [
     "bootstrap, html, css, js, website"
@@ -14,16 +14,15 @@
     "build": "webpack --config webpack.config.prod.js",
     "start:dist": "npm run build && webpack serve --open --config webpack.config.dist.js"
   },
-  "dependencies": {
-    "bootstrap": "^5.3.3",
-    "bootstrap-icons": "^1.11.3",
-    "isotope-layout": "^3.0.6",
-    "jquery": "^3.7.1",
-    "swiper": "^11.0.7"
-  },
+
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
+    "css-minimizer-webpack-plugin": "^6.0.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "image-webpack-loader": "^8.1.0",
+    "mini-css-extract-plugin": "^2.8.1",
+    "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
