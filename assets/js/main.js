@@ -155,10 +155,14 @@
   );
 
   // Auto update year for terms and conditions
-  // slelecting element
-  const termsDate = document.querySelector(".terms-year");
-  const year = new Date().getFullYear();
-  termsDate.textContent = `Last Updated: ${year}`;
+  // selecting element
+  document.addEventListener("DOMContentLoaded", function() {
+    const termsDate = document.querySelector(".terms-year");
+    if (termsDate) {
+      const year = new Date().getFullYear();
+      termsDate.textContent = `Last Updated: ${year}`;
+    }
+  });
   /**
    * Porfolio isotope and filter
    */
