@@ -163,19 +163,60 @@
             observer.observe(el);
         });
 
-        // Form submission effect
-        document.querySelector('.submit-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            this.innerHTML = 'TRANSMITTING...';
-            this.style.background = 'linear-gradient(45deg, #8000ff, #00ffff)';
+        // Functional Form Submission with Fetch
+        const form = document.getElementById('contact-form');
+        const submitBtn = form.querySelector('.submit-btn');
+        const formStatus = document.getElementById('form-status');
+
+        async function handleSubmit(event) {
+            event.preventDefault();
             
-            setTimeout(() => {
-                this.innerHTML = 'TRANSMISSION COMPLETE';
-                this.style.background = 'linear-gradient(45deg, #00ff00, #00ffff)';
-                
+            // Update button for submission in progress
+            submitBtn.innerHTML = 'TRANSMITTING...';
+            submitBtn.style.background = 'linear-gradient(45deg, #8000ff, #00ffff)';
+            submitBtn.disabled = true;
+            formStatus.textContent = '';
+            formStatus.className = '';
+
+            const data = new FormData(event.target);
+            
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success
+                    submitBtn.innerHTML = 'TRANSMISSION COMPLETE';
+                    submitBtn.style.background = 'linear-gradient(45deg, #00ff00, #00ffff)';
+                    formStatus.textContent = "Thank you! Your message has been sent.";
+                    formStatus.classList.add('success');
+                    form.reset();
+                } else {
+                    // Server-side error
+                    formStatus.textContent = "Oops! There was a problem submitting your form.";
+                    formStatus.classList.add('error');
+                    submitBtn.innerHTML = 'TRANSMISSION FAILED';
+                    submitBtn.style.background = 'linear-gradient(45deg, #ff0000, #ff69b4)';
+                }
+            } catch (error) {
+                // Network error
+                formStatus.textContent = "Oops! There was a network problem.";
+                formStatus.classList.add('error');
+                submitBtn.innerHTML = 'TRANSMISSION FAILED';
+                submitBtn.style.background = 'linear-gradient(45deg, #ff0000, #ff69b4)';
+            } finally {
+                // Re-enable button and reset to original state after a delay
                 setTimeout(() => {
-                    this.innerHTML = 'TRANSMIT TO MATRIX';
-                    this.style.background = 'linear-gradient(45deg, #00ffff, #ff0080)';
-                }, 2000);
-            }, 1500);
-        });
+                    submitBtn.innerHTML = 'Send Project Inquiry';
+                    submitBtn.style.background = 'linear-gradient(45deg, #00ffff, #ff0080)';
+                    submitBtn.disabled = false;
+                }, 4000);
+            }
+        }
+
+        form.addEventListener("submit", handleSubmit);
