@@ -143,8 +143,8 @@ favicon and logo are in the `assets/img` folder
 ### Team Members
 
 *   **Abigail Woolley:** Co-founder & Machine Learning Engineer
-*   **Joseph Afriyie Attakorah:** Senior Software Engineer
-*   **Jibril Richter:** Mobile App Developer
+*   **Joseph Afriyie Attakorah:** Software Engineer
+*   **Jibril Richter:** Software Engineer
 *   **Philomena Ahinei Amartey:** Project Manager
 
 Photos are in the `assets/img/team` folder
