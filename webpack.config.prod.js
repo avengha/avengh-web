@@ -43,7 +43,6 @@ module.exports = merge(common, {
                 {from: 'assets/img', to: 'assets/img'},
                 {from: 'assets/css', to: 'assets/css'},
                 {from: 'assets/js', to: 'assets/js'},
-                {from: 'assets/vendor', to: 'assets/vendor'},
                 {from: 'favicon.ico', to: 'favicon.ico'},
                 {from: 'robots.txt', to: 'robots.txt'},
                 {from: 'site.webmanifest', to: 'site.webmanifest'},
