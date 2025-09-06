@@ -12,17 +12,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js",
-    "start:dist": "npm run build && webpack serve --open --config webpack.config.dist.js --watch"
+    "preview": "npm run build && serve dist"
   },
-  "dependencies": {
-    "bootstrap": "^5.3.3",
-    "bootstrap-icons": "^1.11.3",
-    "isotope-layout": "^3.0.6",
-    "jquery": "^3.7.1",
-    "swiper": "^11.0.7"
-  },
+  "dependencies": {},
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
     "html-webpack-plugin": "^5.5.3",
     "image-minimizer-webpack-plugin": "^4.1.0",
@@ -31,7 +26,10 @@
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^11.0.1",
-    "webpack": "^5.88.2",
+    "mini-css-extract-plugin": "^2.9.0",
+    "serve": "^14.2.3",
+    "style-loader": "^4.0.0",
+    "webpack": "5.94.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
     "webpack-merge": "^5.9.0"

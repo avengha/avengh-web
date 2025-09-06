@@ -1,3 +1,5 @@
+import '../css/main-style.css';
+
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu functionality
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');

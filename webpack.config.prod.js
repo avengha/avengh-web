@@ -1,8 +1,8 @@
 const {merge} = require('webpack-merge');
 const common = require('./webpack.common.js');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = merge(common, {
@@ -13,8 +13,7 @@ module.exports = merge(common, {
         maxEntrypointSize: 400000, // 400 KB
     },
     output: {
-        filename: 'assets/js/[name].[contenthash].js',
-        chunkFilename: 'assets/js/[name].[contenthash].js',
+        filename: 'assets/js/[name].[contenthash].bundle.js',
     },
     optimization: {
         minimizer: [
@@ -22,27 +21,21 @@ module.exports = merge(common, {
             new CssMinimizerPlugin(),
         ],
     },
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            },
+        ],
+    },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './index.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: './terms.html',
-            filename: 'terms.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: './privacy.html',
-            filename: 'privacy.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: './404.html',
-            filename: '404.html',
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name].[contenthash].css',
         }),
         new CopyPlugin({
             patterns: [
                 {from: 'assets/img', to: 'assets/img'},
-                {from: 'assets/css', to: 'assets/css'},
-                {from: 'favicon.ico', to: 'favicon.ico'},
                 {from: 'robots.txt', to: 'robots.txt'},
                 {from: 'site.webmanifest', to: 'site.webmanifest'},
                 {from: 'CNAME.txt', to: 'CNAME.txt'},
