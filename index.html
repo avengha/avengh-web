@@ -425,7 +425,7 @@
             </div>
 
             <div class="contact-form glass">
-                <form>
+                <form id="contact-form" action="https://formspree.io/f/mjkejvny" method="POST">
                     <div class="form-group">
                         <label for="name" class="visually-hidden">Your Name</label>
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -443,6 +443,7 @@
                         <textarea id="message" name="message" rows="5" placeholder="Project Details & Requirements" required></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Send Project Inquiry</button>
+                    <div id="form-status"></div>
                 </form>
             </div>
         </div>

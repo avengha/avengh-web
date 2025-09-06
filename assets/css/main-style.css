@@ -1064,6 +1064,25 @@ The gradient overlay is now applied directly to the background-image property. *
      transform: translateY(-3px);
      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
 }
+
+#form-status {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 20px; /* Reserve space to prevent layout shift */
+    transition: all 0.3s ease;
+}
+
+#form-status.success {
+    color: #00ff00;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+#form-status.error {
+    color: #ff69b4;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
  .contact-info h3 {
      font-size: 2.5rem;
      color: #00ffff;
