@@ -896,6 +896,33 @@ The gradient overlay is now applied directly to the background-image property. *
     border-color: rgba(255, 105, 180, 0.7);
     box-shadow: 0 0 25px rgba(255, 105, 180, 0.6), inset 0 0 10px rgba(0,0,0,0.4);
 }
+
+/* Team Section Hexagon Overrides for Upright Circle Effect */
+#team .hexagon {
+    width: 300px;
+    height: 300px;
+}
+
+#team .hexagon-inner {
+    transform: none; /* Stand upright from the start */
+    border-radius: 25px; /* Initial rounded square shape */
+    padding: 30px 25px;
+}
+
+#team .hexagon:hover .hexagon-inner {
+    transform: none; /* Remain upright on hover */
+    border-radius: 50%; /* Become a circle on hover */
+}
+
+#team .team-photo,
+#team .hexagon h4,
+#team .hexagon p {
+    transform: none; /* Remove counter-rotation for content */
+}
+
+#team .hexagon:hover .team-photo {
+    transform: scale(1.05); /* Only scale the photo on hover */
+}
 /* Section 4: Enhanced Timeline */
  .timeline {
      padding: 100px 0;
@@ -980,6 +1007,35 @@ The gradient overlay is now applied directly to the background-image property. *
      color: var(--text-medium);
      line-height: 1.7;
      font-size: 1rem;
+}
+
+/* Static Page (Terms/Privacy) Content Styling */
+.static-page .timeline-container {
+    max-width: 900px;
+}
+
+.static-page .timeline-line,
+.static-page .timeline-dot {
+    display: none;
+}
+
+.static-page .timeline-item,
+.static-page .timeline-item:nth-child(even) {
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.static-page .timeline-content {
+    max-width: 100%;
+    transform: none;
+    text-align: left;
+}
+
+.static-page .timeline-content:hover {
+    transform: none;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: rgba(224, 163, 255, 0.15);
 }
 /* Section 5: Contact */
  .contact {
@@ -1199,7 +1255,6 @@ The gradient overlay is now applied directly to the background-image property. *
 	 .feature-row {
         flex-direction: column;
         gap: 40px;
-		min-height: 720px;
     }
 
     .feature-row:nth-child(even) {
@@ -1230,6 +1285,11 @@ The gradient overlay is now applied directly to the background-image property. *
     }
      .timeline-content {
          max-width: 100%;
+    }
+
+    .static-page .timeline-item,
+    .static-page .timeline-item:nth-child(even) {
+        padding-left: 0;
     }
 }
 
@@ -1309,6 +1369,12 @@ The gradient overlay is now applied directly to the background-image property. *
         line-height: 1.6;
     }
     
+    /* Ensure team hexagons remain square on mobile */
+    #team .hexagon {
+        width: 280px;
+        height: 280px;
+    }
+
     .hexagon-container {
         gap: 20px; /* Reduce gap since boxes are larger */
     }
