@@ -124,6 +124,88 @@ favicon and logo are in the `assets/img` folder
 
 ---
 
+## About Section
+
+### Company Story
+*   **Headline:** Our Foundation
+*   **Content:** Founded in 2017, Avengh (Avengers Fist) emerged from a shared vision of empowering businesses through innovative custom software solutions. We are passionate about harnessing cutting-edge technologies to create tailored applications that solve real-world challenges and drive sustainable business growth.
+
+### Company Culture
+*   **Headline:** Our Development Environment
+*   **Content:** At Avengh, we foster a dynamic and collaborative work environment where our talented development team thrives. We value creative problem-solving, technical excellence, and a passion for transformative technology. We believe in open communication, continuous skill development, and celebrating successful project deliveries.
+
+---
+
+## Team Section
+
+*   **Title:** Our Expert <span>Development Team</span>
+
+### Team Members
+
+*   **Abigail Woolley:** Co-founder & Machine Learning Engineer
+*   **Joseph Afriyie Attakorah:** Senior Software Engineer
+*   **Jibril Richter:** Mobile App Developer
+*   **Philomena Ahinei Amartey:** Project Manager
+
+Photos are in the `assets/img/team` folder
+
+---
+
+## Services Detail Pages
+
+### Web Application Development
+*   **Comprehensive Description:** Craft user-friendly and scalable web applications that streamline your operations, enhance customer experience, and boost your online presence. Our web solutions are built with modern frameworks, responsive design, and robust security features.
+
+### Mobile App Development
+*   **Comprehensive Description:** Build engaging and feature-rich mobile applications for iOS and Android that empower your users and unlock new market opportunities. We specialize in native and cross-platform development using the latest mobile technologies.
+
+### AI & Machine Learning Solutions
+*   **Comprehensive Description:** Leverage the power of artificial intelligence and machine learning to gain valuable insights from your data, automate complex tasks, and optimize decision-making processes. Our AI solutions are tailored to your specific business needs.
+
+### WordPress Solutions
+*   **Comprehensive Description:** Design custom WordPress themes or customize existing themes to perfectly match your brand and functionality requirements. We provide comprehensive WordPress development and maintenance services.
+
+---
+
+## Call to Action Section
+
+*   **Headline:** Let's Build Your Next Software Solution!
+*   **Description:** Do you need a custom software solution that perfectly fits your business requirements? We have the expertise and experience to make your vision a reality.
+*   **Primary Button:** Start Your Project
+*   **Secondary Button:** Schedule Consultation
+
+---
+
+## Case Studies & Success Stories
+
+### Featured Projects
+*   **E-Commerce Platform:** Built a complete online marketplace with 10,000+ active users
+*   **Healthcare Management System:** Developed patient management software for 5 medical facilities
+*   **Financial Dashboard:** Created real-time analytics platform for investment firm
+*   **Educational Portal:** Launched e-learning platform serving 2,000+ students
+
+---
+
+## FAQ Section
+
+### General Questions
+
+**Q: What types of software do you develop?**
+A: We specialize in custom web applications, mobile apps, AI solutions, e-commerce platforms, and enterprise software systems tailored to your specific business needs.
+
+**Q: How long does a typical project take?**
+A: Project timelines vary based on complexity, but most custom applications take 3-6 months from conception to deployment. We provide detailed timelines during our initial consultation.
+
+**Q: Do you provide ongoing support?**
+A: Yes, we offer comprehensive maintenance and support packages to ensure your software continues to perform optimally and stays updated with the latest security standards.
+
+### Technical Questions
+
+**Q: What technologies do you use?**
+A: We use modern, industry-standard technologies including React, Node.js, Python, cloud platforms (AWS, Google Cloud), and mobile frameworks like React Native and Flutter.
+
+---
+
 ## Connect Section (Contact)
 
 ### Contact Information
@@ -216,83 +298,3 @@ favicon and logo are in the `assets/img` folder
     *   Changes to This Privacy Policy
 
 ---
-
-## About Section
-
-### Company Story
-*   **Headline:** Our Foundation
-*   **Content:** Founded in 2017, Avengh (Avengers Fist) emerged from a shared vision of empowering businesses through innovative custom software solutions. We are passionate about harnessing cutting-edge technologies to create tailored applications that solve real-world challenges and drive sustainable business growth.
-
-### Company Culture
-*   **Headline:** Our Development Environment
-*   **Content:** At Avengh, we foster a dynamic and collaborative work environment where our talented development team thrives. We value creative problem-solving, technical excellence, and a passion for transformative technology. We believe in open communication, continuous skill development, and celebrating successful project deliveries.
-
----
-
-## Team Section
-
-*   **Title:** Our Expert <span>Development Team</span>
-
-### Team Members
-
-*   **Abigail Woolley:** Co-founder & Machine Learning Engineer
-*   **Joseph Afriyie Attakorah:** Senior Software Engineer
-*   **Jibril Richter:** Mobile App Developer
-*   **Philomena Ahinei Amartey:** Project Manager
-
-Photos are in the `assets/img/team` folder
-
----
-
-## Services Detail Pages
-
-### Web Application Development
-*   **Comprehensive Description:** Craft user-friendly and scalable web applications that streamline your operations, enhance customer experience, and boost your online presence. Our web solutions are built with modern frameworks, responsive design, and robust security features.
-
-### Mobile App Development
-*   **Comprehensive Description:** Build engaging and feature-rich mobile applications for iOS and Android that empower your users and unlock new market opportunities. We specialize in native and cross-platform development using the latest mobile technologies.
-
-### AI & Machine Learning Solutions
-*   **Comprehensive Description:** Leverage the power of artificial intelligence and machine learning to gain valuable insights from your data, automate complex tasks, and optimize decision-making processes. Our AI solutions are tailored to your specific business needs.
-
-### WordPress Solutions
-*   **Comprehensive Description:** Design custom WordPress themes or customize existing themes to perfectly match your brand and functionality requirements. We provide comprehensive WordPress development and maintenance services.
-
----
-
-## Call to Action Section
-
-*   **Headline:** Let's Build Your Next Software Solution!
-*   **Description:** Do you need a custom software solution that perfectly fits your business requirements? We have the expertise and experience to make your vision a reality.
-*   **Primary Button:** Start Your Project
-*   **Secondary Button:** Schedule Consultation
-
----
-
-## Case Studies & Success Stories
-
-### Featured Projects
-*   **E-Commerce Platform:** Built a complete online marketplace with 10,000+ active users
-*   **Healthcare Management System:** Developed patient management software for 5 medical facilities
-*   **Financial Dashboard:** Created real-time analytics platform for investment firm
-*   **Educational Portal:** Launched e-learning platform serving 2,000+ students
-
----
-
-## FAQ Section
-
-### General Questions
-
-**Q: What types of software do you develop?**
-A: We specialize in custom web applications, mobile apps, AI solutions, e-commerce platforms, and enterprise software systems tailored to your specific business needs.
-
-**Q: How long does a typical project take?**
-A: Project timelines vary based on complexity, but most custom applications take 3-6 months from conception to deployment. We provide detailed timelines during our initial consultation.
-
-**Q: Do you provide ongoing support?**
-A: Yes, we offer comprehensive maintenance and support packages to ensure your software continues to perform optimally and stays updated with the latest security standards.
-
-### Technical Questions
-
-**Q: What technologies do you use?**
-A: We use modern, industry-standard technologies including React, Node.js, Python, cloud platforms (AWS, Google Cloud), and mobile frameworks like React Native and Flutter.
