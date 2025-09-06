@@ -3,26 +3,37 @@
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const mobileNav = document.querySelector('.mobile-nav');
 
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenuToggle.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-        });
+        // Check if elements exist before adding event listeners
+        if (!mobileMenuToggle || !mobileNav) {
+            console.warn('Mobile menu elements not found');
+        }
+
+        if (mobileMenuToggle && mobileNav) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+            });
+        }
 
         // Close mobile menu when clicking on links
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
+        if (mobileMenuToggle && mobileNav) {
+            document.querySelectorAll('.mobile-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                });
             });
-        });
+        }
 
         // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-            }
-        });
+        if (mobileMenuToggle && mobileNav) {
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                }
+            });
+        }
 
         // Enhanced smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -43,22 +54,55 @@
             });
         });
 
-        // Enhanced header functionality
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
+        // Cache DOM elements for better performance
+        const header = document.querySelector('header');
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+        const shapes = document.querySelectorAll('.shape');
+        
+        // Throttle function for performance
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        // Enhanced header functionality with throttling
+        const handleScroll = throttle(() => {
             const scrolled = window.pageYOffset;
             
-            if (scrolled > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            if (header) {
+                if (scrolled > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             }
-        });
+            
+            // Update active menu item
+            updateActiveMenuItem();
+            
+            // Parallax effect for geometric shapes
+            if (shapes.length > 0) {
+                shapes.forEach((shape, index) => {
+                    const speed = (index + 1) * 0.3;
+                    shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+                });
+            }
+        }, 16); // ~60fps
+
+        window.addEventListener('scroll', handleScroll);
 
         // Active menu item highlighting
         function updateActiveMenuItem() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+            if (sections.length === 0 || navLinks.length === 0) return;
             
             let currentSection = '';
             const scrollPos = window.pageYOffset + 100;
@@ -80,34 +124,26 @@
             });
         }
 
-        window.addEventListener('scroll', updateActiveMenuItem);
         window.addEventListener('load', updateActiveMenuItem);
 
-        // Parallax effect for geometric shapes
-        window.addEventListener('scroll', () => {
-            const shapes = document.querySelectorAll('.shape');
-            const scrolled = window.pageYOffset;
-            
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 0.3;
-                shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
-            });
-        });
+        // Parallax effect is now handled in the throttled scroll handler above
 
-        // Neural lines pulse effect
+        // Neural lines pulse effect with cached elements
         const neuralLines = document.querySelectorAll('.neural-line');
-        setInterval(() => {
-            neuralLines.forEach((line, index) => {
-                setTimeout(() => {
-                    line.style.opacity = '1';
-                    line.style.transform = 'scaleX(1.2)';
+        if (neuralLines.length > 0) {
+            setInterval(() => {
+                neuralLines.forEach((line, index) => {
                     setTimeout(() => {
-                        line.style.opacity = '0.2';
-                        line.style.transform = 'scaleX(0.5)';
-                    }, 200);
-                }, index * 300);
-            });
-        }, 2000);
+                        line.style.opacity = '1';
+                        line.style.transform = 'scaleX(1.2)';
+                        setTimeout(() => {
+                            line.style.opacity = '0.2';
+                            line.style.transform = 'scaleX(0.5)';
+                        }, 200);
+                    }, index * 300);
+                });
+            }, 2000);
+        }
 
         // Enhanced particle generation
         function createQuantumParticle() {
@@ -165,8 +201,13 @@
 
         // Functional Form Submission with Fetch
         const form = document.getElementById('contact-form');
-        const submitBtn = form.querySelector('.submit-btn');
+        const submitBtn = form ? form.querySelector('.submit-btn') : null;
         const formStatus = document.getElementById('form-status');
+        
+        // Check if form elements exist
+        if (!form || !submitBtn || !formStatus) {
+            console.warn('Form elements not found on this page');
+        }
 
         async function handleSubmit(event) {
             event.preventDefault();
@@ -219,4 +260,6 @@
             }
         }
 
-        form.addEventListener("submit", handleSubmit);
+        if (form && submitBtn && formStatus) {
+            form.addEventListener("submit", handleSubmit);
+        }

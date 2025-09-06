@@ -16,6 +16,10 @@
      padding: 0;
      box-sizing: border-box;
 }
+ html {
+     overflow-x: hidden;
+     width: 100%;
+}
  body {
      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
      background: #000;
@@ -26,6 +30,26 @@
      line-height: 1.6;
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
+     width: 100%;
+     max-width: 100vw;
+}
+
+/* Prevent horizontal overflow on all elements */
+*, *::before, *::after {
+    max-width: 100%;
+}
+
+/* Ensure all containers respect viewport width */
+.hero, .features, .showcase, .timeline, .contact, .about {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+/* Ensure all container elements don't exceed viewport */
+.hero-content, .features-container, .hexagon-container, .timeline-container, .contact-container {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Visually-hidden class for accessibility */
@@ -428,6 +452,8 @@
      border: none;
      box-shadow: none;
      border-radius: 0;
+     width: 100%;
+     box-sizing: border-box;
 }
  @keyframes heroAppear {
      from {
@@ -555,6 +581,9 @@
      max-width: 640px;
      opacity: 0;
      animation: slideUpStagger 1.2s ease 1.2s forwards;
+     width: 100%;
+     box-sizing: border-box;
+     padding: 0 20px;
 }
  .hero-stat {
      text-align: center;
@@ -1254,7 +1283,8 @@ The gradient overlay is now applied directly to the background-image property. *
  @media (max-width: 1024px) {
 	 .feature-row {
         flex-direction: column;
-        gap: 40px;
+        gap: 30px;
+        padding: 0 20px;
     }
 
     .feature-row:nth-child(even) {
@@ -1262,14 +1292,19 @@ The gradient overlay is now applied directly to the background-image property. *
     }
 	.feature-content {
     	flex: 0;
+        padding: 40px 30px;
+        width: 100%;
+        box-sizing: border-box;
 	}
     .feature-visual {
-        height: 250px; /* Adjust the height for mobile view */
+        height: 250px;
         width: 100%;
+        box-sizing: border-box;
     }
      .contact-container {
          grid-template-columns: 1fr;
          gap: 40px;
+         padding: 0 20px;
     }
 
      .timeline-line {
@@ -1278,18 +1313,25 @@ The gradient overlay is now applied directly to the background-image property. *
      .timeline-item, .timeline-item:nth-child(even) {
          justify-content: flex-start;
          padding-left: 80px;
-         padding-right: 0;
+         padding-right: 20px;
     }
      .timeline-dot {
          left: 30px;
     }
      .timeline-content {
-         max-width: 100%;
+         max-width: calc(100% - 100px);
+         box-sizing: border-box;
     }
 
     .static-page .timeline-item,
     .static-page .timeline-item:nth-child(even) {
-        padding-left: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .static-page .timeline-content {
+        max-width: 100%;
+        padding: 40px 30px;
     }
 }
 
@@ -1301,41 +1343,60 @@ The gradient overlay is now applied directly to the background-image property. *
     .mobile-menu-toggle {
         display: flex;
     }
+
+    header {
+        width: 95%;
+        padding: 15px 25px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .logo img {
+        height: 35px;
+    }
 }
  @media (max-width: 768px) {
      .hero-content {
-         padding: 40px 20px;
+         padding: 40px 15px;
+         margin-top: 100px;
     }
      .hero h1 {
          font-size: clamp(1.8rem, 8vw, 3rem);
     }
+     .hero-description {
+         padding: 0 10px;
+    }
      .hero-description p {
-         font-size: 1.1rem;
+         font-size: 1rem;
     }
      .hero-stats {
          grid-template-columns: repeat(2, 1fr);
-         gap: 20px;
+         gap: 15px;
          margin: 40px auto 35px;
+         padding: 0 10px;
     }
      .hero-stat {
-         padding: 15px;
+         padding: 12px 8px;
     }
      .hero-stat-number {
-         font-size: 1.5rem;
+         font-size: 1.3rem;
     }
      .hero-subtitle::before, .hero-subtitle::after {
-         width: 25px;
+         width: 20px;
     }
      .hero-subtitle::before {
-         left: -35px;
+         left: -30px;
     }
      .hero-subtitle::after {
-         right: -35px;
+         right: -30px;
     }
      .cta-buttons {
          flex-direction: column;
          align-items: center;
          gap: 15px;
+         padding: 0 20px;
     }
      .cta-button {
          width: 100%;
@@ -1405,22 +1466,162 @@ The gradient overlay is now applied directly to the background-image property. *
         gap: 20px; /* Reduce gap since boxes are larger */
     }
      .section-title {
-         margin-bottom: 60px;
+         margin-bottom: 40px;
+         padding: 0 20px;
+    }
+     .section-subtitle {
+         padding: 0 20px;
+         margin-bottom: 40px;
     }
      .features, .showcase, .timeline, .contact {
-         padding: 80px 0;
-    }
-     .timeline {
          padding: 60px 0;
     }
+     .timeline {
+         padding: 50px 0;
+    }
      .footer-links {
-         gap: 20px;
+         gap: 15px;
          margin-bottom: 25px;
+         flex-direction: column;
+         align-items: center;
+    }
+     .footer-links li {
+         margin: 5px 0;
     }
      .footer-links a {
-         font-size: 0.85rem;
+         font-size: 0.9rem;
+    }
+     .footer-content {
+         padding: 0 20px;
     }
 }
+/* Extra small screens */
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 30px 10px;
+        margin-top: 90px;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.5rem, 10vw, 2.5rem);
+        line-height: 1.2;
+    }
+
+    .hero-description p {
+        font-size: 0.95rem;
+    }
+
+    .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0 5px;
+    }
+
+    .hero-stat {
+        padding: 10px 6px;
+    }
+
+    .hero-stat-number {
+        font-size: 1.2rem;
+    }
+
+    .hero-stat-label {
+        font-size: 0.75rem;
+    }
+
+    .cta-buttons {
+        padding: 0 10px;
+    }
+
+    .cta-button {
+        padding: 14px 30px;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        padding: 0 10px;
+    }
+
+    .section-subtitle {
+        padding: 0 10px;
+        font-size: 0.95rem;
+    }
+
+    .feature-content {
+        padding: 30px 20px;
+    }
+
+    .feature-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .feature-content p {
+        font-size: 1rem;
+    }
+
+    .hexagon {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .hexagon-inner {
+        padding: 30px 20px;
+    }
+
+    .timeline-content {
+        padding: 30px 25px;
+    }
+
+    .timeline-content h4 {
+        font-size: 1.3rem;
+    }
+
+    .contact-info, .contact-form {
+        padding: 40px 25px;
+    }
+
+    .contact-info h3 {
+        font-size: 2rem;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+    }
+
+    .social-links a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
+    .footer-links {
+        gap: 10px;
+    }
+
+    .footer-links a {
+        font-size: 0.85rem;
+    }
+
+    header {
+        width: 92%;
+        padding: 12px 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo img {
+        height: 30px;
+    }
+
+    .mobile-nav {
+        width: 95%;
+        padding: 25px;
+    }
+}
+
 /* Enhanced scrollbar */
  ::-webkit-scrollbar {
      width: 12px;
