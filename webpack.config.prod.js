@@ -13,8 +13,8 @@ module.exports = merge(common, {
         maxEntrypointSize: 400000, // 400 KB
     },
     output: {
-        filename: '[name].[contenthash].js',
-        chunkFilename: '[name].[contenthash].js',
+        filename: 'assets/js/[name].[contenthash].js',
+        chunkFilename: 'assets/js/[name].[contenthash].js',
     },
     optimization: {
         minimizer: [
@@ -42,7 +42,6 @@ module.exports = merge(common, {
             patterns: [
                 {from: 'assets/img', to: 'assets/img'},
                 {from: 'assets/css', to: 'assets/css'},
-                {from: 'assets/js', to: 'assets/js'},
                 {from: 'favicon.ico', to: 'favicon.ico'},
                 {from: 'robots.txt', to: 'robots.txt'},
                 {from: 'site.webmanifest', to: 'site.webmanifest'},
