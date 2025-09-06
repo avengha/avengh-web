@@ -9,6 +9,19 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     filename: 'assets/js/[name].bundle.js',
+    assetModuleFilename: 'assets/img/[name].[hash][ext]',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({

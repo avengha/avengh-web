@@ -35,7 +35,6 @@ module.exports = merge(common, {
         }),
         new CopyPlugin({
             patterns: [
-                {from: 'assets/img', to: 'assets/img'},
                 {from: 'robots.txt', to: 'robots.txt'},
                 {from: 'site.webmanifest', to: 'site.webmanifest'},
                 {from: 'CNAME.txt', to: 'CNAME.txt'},
