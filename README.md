@@ -38,7 +38,6 @@ This creates an optimized production build of your application in the dist folde
 Once you have a production build (using npm run build), you can start the server for the built files:
 
 ```Bash
-npm run start:dist
+npm run preview
 ```
 This will typically build and serve the application from the dist folder (usually at http://localhost:8081).
-

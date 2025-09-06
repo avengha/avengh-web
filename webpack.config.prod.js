@@ -37,7 +37,7 @@ module.exports = merge(common, {
             patterns: [
                 {from: 'robots.txt', to: 'robots.txt'},
                 {from: 'site.webmanifest', to: 'site.webmanifest'},
-                {from: 'CNAME.txt', to: 'CNAME.txt'},
+                {from: 'CNAME.txt', to: 'CNAME'},
             ],
         }),
         new ImageMinimizerPlugin({ // may remove

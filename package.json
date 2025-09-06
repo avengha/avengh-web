@@ -1,12 +1,12 @@
 {
-  "name": "avengers_fist",
+  "name": "avengh-website",
   "version": "1.0.0",
-  "description": "",
+  "description": "The official website for Avengh, a custom software development company.",
   "private": true,
   "keywords": [
-    "html, css, js, website"
+    "custom software", "web development", "mobile development", "ai", "ghana"
   ],
-  "license": "",
+  "license": "UNLICENCED",
   "author": "Joseph Afriyie Attakorah",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
