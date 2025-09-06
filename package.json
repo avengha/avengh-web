@@ -6,7 +6,7 @@
   "keywords": [
     "custom software", "web development", "mobile development", "ai", "ghana"
   ],
-  "license": "UNLICENCED",
+  "license": "UNLICENSED",
   "author": "Joseph Afriyie Attakorah",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

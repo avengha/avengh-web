@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function smoothScrollToHash(hash) {
         const targetElement = document.querySelector(hash);
         if (targetElement) {
-            const headerOffset = 100; // Height of fixed header + extra space
+            const headerOffset = 10; // Height of fixed header + extra space
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
             window.scrollTo({
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.addEventListener("submit", async (event) => {
             event.preventDefault();
-            
+
             // Update button for submission in progress
             submitBtn.innerHTML = 'TRANSMITTING...';
             submitBtn.style.background = 'linear-gradient(45deg, #8000ff, #00ffff)';
