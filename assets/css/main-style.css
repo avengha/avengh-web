@@ -1312,7 +1312,7 @@ The gradient overlay is now applied directly to the background-image property. *
      .timeline-item, .timeline-item:nth-child(even) {
          justify-content: flex-start;
          padding-left: 80px;
-         /*padding-right: 20px;*/
+         padding-right: 0;
     }
      .timeline-dot {
          left: 30px;
