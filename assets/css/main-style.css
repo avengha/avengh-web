@@ -600,7 +600,7 @@
      box-shadow: 0 20px 40px rgba(224, 163, 255, 0.1);
 }
  .hero-stat-number {
-     font-size: 1.8rem;
+     font-size: 1.2rem;
      font-weight: 700;
      color: var(--primary-glow);
      display: block;
@@ -608,7 +608,7 @@
      margin-bottom: 8px;
 }
  .hero-stat-label {
-     font-size: 0.8rem;
+     font-size: 0.7rem;
      color: #999;
      text-transform: uppercase;
      letter-spacing: 0.1em;
