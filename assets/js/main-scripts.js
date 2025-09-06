@@ -121,27 +121,49 @@ document.addEventListener('DOMContentLoaded', () => {
     function createQuantumParticle() {
         const particle = document.createElement('div');
         particle.style.position = 'fixed';
-        particle.style.width = `${Math.random() * 4 + 1}px`;
-        particle.style.height = particle.style.width;
-        particle.style.background = ['#00ffff', '#ff0080', '#8000ff'][Math.floor(Math.random() * 3)];
+        const sizePx = Math.random() * 4 + 1; // px size
+        particle.style.width = `${sizePx}px`;
+        particle.style.height = `${sizePx}px`;
+        const bg = ['#00ffff', '#ff0080', '#8000ff'][Math.floor(Math.random() * 3)];
+        particle.style.background = bg;
         particle.style.borderRadius = '50%';
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = '100vh';
         particle.style.pointerEvents = 'none';
         particle.style.zIndex = '-1';
-        particle.style.boxShadow = `0 0 10px ${particle.style.background}`;
+        particle.style.boxShadow = `0 0 10px ${bg}`;
         document.body.appendChild(particle);
 
         const duration = Math.random() * 3000 + 2000;
         const drift = (Math.random() - 0.5) * 200;
 
-        particle.animate([
-            { transform: 'translateY(0px) translateX(0px)', opacity: 0 },
-            { transform: `translateY(-100vh) translateX(${drift}px)`, opacity: 1 }
-        ], {
-            duration: duration,
-            easing: 'ease-out'
-        }).onfinish = () => particle.remove();
+        if (particle.animate) {
+            particle.animate([
+                { transform: 'translateY(0px) translateX(0px)', opacity: 0 },
+                { transform: `translateY(-100vh) translateX(${drift}px)`, opacity: 1 }
+            ], {
+                duration: duration,
+                easing: 'ease-out'
+            }).onfinish = () => particle.remove();
+        } else {
+            // fallback for browsers without Element.animate
+            particle.style.transition = `transform ${duration}ms ease-out, opacity ${duration}ms ease-out`;
+            requestAnimationFrame(() => {
+                particle.style.transform = `translateY(-100vh) translateX(${drift}px)`;
+                particle.style.opacity = '1';
+            });
+            setTimeout(() => particle.remove(), duration + 50);
+        }
+    }
+
+    // If the page was loaded with a hash, adjust scroll to account for fixed header
+    if (window.location.hash) {
+        // small delay to allow browser default jump to happen first, then correct it
+        setTimeout(() => {
+            smoothScrollToHash(window.location.hash);
+            // update active menu after the smooth scroll completes
+            setTimeout(updateActiveMenuItem, 600);
+        }, 50);
     }
 
     setInterval(createQuantumParticle, 1500);
