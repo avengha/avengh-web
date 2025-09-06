@@ -134,7 +134,7 @@
      position: absolute;
      background: linear-gradient(90deg, transparent, #00ffff, transparent);
      height: 1px;
-     animation: neuralPulse 3s ease-in-out infinite; 
+     animation: neuralPulse 3s ease-in-out infinite;
 }
  .neural-line:nth-child(1) {
      top: 20%;
@@ -155,7 +155,7 @@
      left: 0;
      width: 100%;
      background: linear-gradient(90deg, transparent, #9370db, transparent);
-     animation-delay: -2s; 
+     animation-delay: -2s;
 }
  @keyframes neuralPulse {
      0%, 100% {
@@ -263,7 +263,7 @@
      background: linear-gradient(135deg, rgba(224, 163, 255, 0.15), rgba(255, 105, 180, 0.1));
      box-shadow: 0 0 20px rgba(224, 163, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 15px rgba(224, 163, 255, 0.2);
      border: 1px solid rgba(224, 163, 255, 0.3);
-     text-shadow: 0 0 10px rgba(224, 163, 255, 0.8); 
+     text-shadow: 0 0 10px rgba(224, 163, 255, 0.8);
      transform: translateY(-1px);
 }
  .nav-links li a.active::after {
@@ -312,14 +312,14 @@
 }
 /* Mobile menu active state */
 .mobile-nav a.active {
-    background: linear-gradient(135deg, rgba(224, 163, 255, 0.2), rgba(255, 105, 180, 0.15)); 
+    background: linear-gradient(135deg, rgba(224, 163, 255, 0.2), rgba(255, 105, 180, 0.15));
     color: var(--primary-glow);
     border: 1px solid rgba(224, 163, 255, 0.4);
-    box-shadow: 
+    box-shadow:
         0 0 25px rgba(224, 163, 255, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
-    text-shadow: 0 0 10px rgba(224, 163, 255, 0.6); 
+    text-shadow: 0 0 10px rgba(224, 163, 255, 0.6);
 }
  .hamburger-line {
      width: 25px;
@@ -567,7 +567,7 @@
      backdrop-filter: blur(10px);
 }
  .hero-stat:hover {
-     transform: translateY(-8px) scale(1.05); 
+     transform: translateY(-8px) scale(1.05);
      border-color: rgba(255, 105, 180, 0.3);
      box-shadow: 0 20px 40px rgba(224, 163, 255, 0.1);
 }
@@ -642,7 +642,7 @@
 }
  .cta-button.secondary:hover, .cta-button.secondary:focus-visible {
      background: rgba(224, 163, 255, 0.08);
-     box-shadow: 0 12px 30px rgba(224, 163, 255, 0.2); 
+     box-shadow: 0 12px 30px rgba(224, 163, 255, 0.2);
 }
 /* Section 2: Diagonal Features */
  .features {
@@ -685,7 +685,7 @@
      width: 100px;
      height: 3px;
      background: linear-gradient(90deg, #00ffff, #ff0080);
-     border-radius: 2px; 
+     border-radius: 2px;
 }
 
 .section-subtitle {
@@ -740,7 +740,7 @@
      box-shadow: 0 20px 40px rgba(224, 163, 255, 0.3);
      background-image: linear-gradient(45deg, rgba(224, 163, 255, 0.05), rgba(255, 105, 180, 0.05)), var(--bg-image);
 }
-/* Removed .feature-visual::before and .feature-visual:hover::before to simplify the code. 
+/* Removed .feature-visual::before and .feature-visual:hover::before to simplify the code.
 The gradient overlay is now applied directly to the background-image property. */
  #solutions .feature-row:nth-child(1) .feature-visual {
     --bg-image: url('../img/capabilities/web-app.jpg');
@@ -936,7 +936,7 @@ The gradient overlay is now applied directly to the background-image property. *
 }
  .timeline-line {
      position: absolute;
-     left: 50%; 
+     left: 50%;
      top: 0;
      bottom: 0;
      width: 4px;
@@ -1090,7 +1090,7 @@ The gradient overlay is now applied directly to the background-image property. *
      border: 1px solid rgba(255, 255, 255, 0.2);
      border-radius: 10px;
      color: #ffffff;
-     font-family: inherit; 
+     font-family: inherit;
      font-size: 1rem;
      backdrop-filter: blur(10px);
      transition: all 0.3s ease;
@@ -1344,35 +1344,61 @@ The gradient overlay is now applied directly to the background-image property. *
     }
     /* Update the existing hexagon styles for mobile */
     .hexagon {
-        width: 280px;  /* Increased from 180px */
-        height: 320px; /* Increased from 200px */
-        margin: 30px auto; /* Center and add more spacing */
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        margin: 20px auto;
     }
-    
+
     .hexagon-inner {
-        padding: 60px 35px; /* More padding for larger content area */
+        padding: 40px 25px;
+        transform: none;
+        border-radius: 25px;
     }
-    
+
+    .hexagon-icon, .hexagon h4, .hexagon p, .team-photo {
+        transform: none;
+    }
+
+    #team .hexagon:hover .hexagon-inner {
+        border-radius: 25px;
+    }
+
+    #team .hexagon-inner {
+        border-radius: 25px;
+    }
+
+    #team .hexagon:hover .hexagon-inner {
+        border-radius: 25px;
+    }
+
+    .hexagon:hover .hexagon-inner {
+        transform: none;
+    }
+
+    .hexagon:hover {
+        transform: translateY(-5px);
+    }
+
     .hexagon-icon {
-        font-size: 3.5rem; /* Larger icon */
-        margin-bottom: 25px;
-    }
-    
-    .hexagon h4 {
-        font-size: 1.6rem; /* Larger heading */
+        font-size: 3rem;
         margin-bottom: 20px;
     }
-    
-    .hexagon p {
-        font-size: 1.1rem; /* Larger text */
-        max-width: 200px; /* More width for text */
-        line-height: 1.6;
+
+    .hexagon h4 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
     }
-    
+
+    .hexagon p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
     /* Ensure team hexagons remain square on mobile */
     #team .hexagon {
         width: 280px;
-        height: 280px;
+        height: auto;
     }
 
     .hexagon-container {
