@@ -1037,6 +1037,27 @@ The gradient overlay is now applied directly to the background-image property. *
      font-size: 1rem;
 }
 
+/* Static Page (Terms/Privacy) List and Heading Styling */
+.static-page .timeline-content ul {
+    list-style-position: inside;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+.static-page .timeline-content ul li {
+    margin-bottom: 0.5rem;
+}
+.static-page .timeline-content strong {
+    color: var(--text-light);
+    font-weight: 600;
+}
+.static-page .timeline-content h3,
+.static-page .timeline-content h4 {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
 /* Static Page (Terms/Privacy) Content Styling */
 .static-page .timeline-container {
     max-width: 900px;

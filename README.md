@@ -33,7 +33,7 @@ npm run build
 ```
 This creates an optimized production build of your application in the dist folder. This build is suitable for deployment to a web server.
 
-**3. Running the Production Build:**
+**3. Previewing the Production Build:**
 
 Once you have a production build (using npm run build), you can start the server for the built files:
 
