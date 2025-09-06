@@ -28,15 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Enhanced smooth scrolling
+    function smoothScrollToHash(hash) {
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+            const headerOffset = 100; // Height of fixed header + extra space
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId.length > 1 && document.querySelector(targetId)) {
+            const href = this.getAttribute('href');
+            if (href.length > 1 && href.startsWith('#')) {
                 e.preventDefault();
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                smoothScrollToHash(href);
             }
         });
     });
@@ -160,12 +170,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // If the page was loaded with a hash, adjust scroll to account for fixed header
     if (window.location.hash) {
-        // small delay to allow browser default jump to happen first, then correct it
-        setTimeout(() => {
-            smoothScrollToHash(window.location.hash);
-            // update active menu after the smooth scroll completes
-            setTimeout(updateActiveMenuItem, 600);
-        }, 50);
+        // small delay to allow browser default jump to happen first, then correct it.
+        setTimeout(() => smoothScrollToHash(window.location.hash), 50);
     }
 
     setInterval(createQuantumParticle, 1500);
@@ -201,8 +207,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.addEventListener("submit", async (event) => {
             event.preventDefault();
+            
+            // Update button for submission in progress
             submitBtn.innerHTML = 'TRANSMITTING...';
+            submitBtn.style.background = 'linear-gradient(45deg, #8000ff, #00ffff)';
             submitBtn.disabled = true;
+            formStatus.textContent = '';
+            formStatus.className = '';
 
             try {
                 const response = await fetch(event.target.action, {
@@ -212,18 +223,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
+                    submitBtn.innerHTML = 'TRANSMISSION COMPLETE';
+                    submitBtn.style.background = 'linear-gradient(45deg, #00ff00, #00ffff)';
                     formStatus.textContent = "Thank you! Your message has been sent.";
                     formStatus.classList.add('success');
                     form.reset();
                 } else {
-                    throw new Error('Form submission failed');
+                    throw new Error('Server responded with an error.');
                 }
             } catch (error) {
+                submitBtn.innerHTML = 'TRANSMISSION FAILED';
+                submitBtn.style.background = 'linear-gradient(45deg, #ff0000, #ff69b4)';
                 formStatus.textContent = "Oops! There was a problem submitting your form.";
                 formStatus.classList.add('error');
             } finally {
                 setTimeout(() => {
                     submitBtn.innerHTML = 'Send Project Inquiry';
+                    submitBtn.style.background = 'linear-gradient(45deg, #00ffff, #ff0080)';
                     submitBtn.disabled = false;
                     formStatus.textContent = '';
                     formStatus.className = '';
