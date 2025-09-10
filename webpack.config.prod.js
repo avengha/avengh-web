@@ -42,6 +42,7 @@ module.exports = merge(common, {
                 {from: 'favicon.svg', to: 'favicon.svg'},
                 {from: 'favicon-96x96.png', to: 'favicon-96x96.png'},
                 {from: 'apple-touch-icon.png', to: 'apple-touch-icon.png'},
+                {from: 'assets/img/social-preview.png', to: 'assets/img/social-preview.png'},
                 {from: 'web-app-manifest-192x192.png', to: 'web-app-manifest-192x192.png'},
                 {from: 'web-app-manifest-512x512.png', to: 'web-app-manifest-512x512.png'},
             ],
