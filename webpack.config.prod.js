@@ -36,6 +36,7 @@ module.exports = merge(common, {
         new CopyPlugin({
             patterns: [
                 {from: 'robots.txt', to: 'robots.txt'},
+                {from: 'sitemap.xml', to: 'sitemap.xml'},
                 {from: 'site.webmanifest', to: 'site.webmanifest'},
                 {from: 'CNAME.txt', to: 'CNAME.txt'},
                 {from: 'favicon.ico', to: 'favicon.ico'},
