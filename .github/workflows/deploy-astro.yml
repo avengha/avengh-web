@@ -33,5 +33,5 @@ jobs:
         with:
           branch: gh-pages
           folder: avengh-astro/dist
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           clean: true
