@@ -199,18 +199,74 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Functional Form Submission with Fetch
+    // Functional Form Submission with Fetch and Client-Side Validation
     const form = document.getElementById('contact-form');
     if (form) {
         const submitBtn = form.querySelector('.submit-btn');
         const formStatus = document.getElementById('form-status');
 
+        const validateEmail = (email) => {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        };
+
+        const showValidationError = (field, message) => {
+            field.classList.add('is-invalid');
+            let error = field.nextElementSibling;
+            if (!error || !error.classList.contains('invalid-feedback')) {
+                error = document.createElement('div');
+                error.classList.add('invalid-feedback');
+                field.parentNode.insertBefore(error, field.nextSibling);
+            }
+            error.textContent = message;
+        };
+
+        const clearValidationErrors = () => {
+            form.querySelectorAll('.is-invalid').forEach(field => {
+                field.classList.remove('is-invalid');
+            });
+            form.querySelectorAll('.invalid-feedback').forEach(error => {
+                error.textContent = '';
+            });
+        };
+
         form.addEventListener("submit", async (event) => {
             event.preventDefault();
+            clearValidationErrors();
 
-            // Update button for submission in progress
+            const name = form.querySelector('#name');
+            const email = form.querySelector('#email');
+            const subject = form.querySelector('#subject');
+            const message = form.querySelector('#message');
+            let isValid = true;
+
+            if (!name.value.trim()) {
+                showValidationError(name, 'Name is required.');
+                isValid = false;
+            }
+            if (!email.value.trim()) {
+                showValidationError(email, 'Email is required.');
+                isValid = false;
+            } else if (!validateEmail(email.value)) {
+                showValidationError(email, 'Please enter a valid email address.');
+                isValid = false;
+            }
+            if (!subject.value.trim()) {
+                showValidationError(subject, 'Subject is required.');
+                isValid = false;
+            }
+            if (!message.value.trim()) {
+                showValidationError(message, 'Message is required.');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                formStatus.textContent = 'Please correct the errors above.';
+                formStatus.classList.add('error');
+                return;
+            }
+
             submitBtn.innerHTML = 'TRANSMITTING...';
-            submitBtn.style.background = 'linear-gradient(45deg, #8000ff, #00ffff)';
             submitBtn.disabled = true;
             formStatus.textContent = '';
             formStatus.className = '';
@@ -224,7 +280,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     submitBtn.innerHTML = 'TRANSMISSION COMPLETE';
-                    submitBtn.style.background = 'linear-gradient(45deg, #00ff00, #00ffff)';
                     formStatus.textContent = "Thank you! Your message has been sent.";
                     formStatus.classList.add('success');
                     form.reset();
@@ -233,13 +288,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (error) {
                 submitBtn.innerHTML = 'TRANSMISSION FAILED';
-                submitBtn.style.background = 'linear-gradient(45deg, #ff0000, #ff69b4)';
                 formStatus.textContent = "Oops! There was a problem submitting your form.";
                 formStatus.classList.add('error');
             } finally {
                 setTimeout(() => {
                     submitBtn.innerHTML = 'Send Project Inquiry';
-                    submitBtn.style.background = 'linear-gradient(45deg, #00ffff, #ff0080)';
                     submitBtn.disabled = false;
                     formStatus.textContent = '';
                     formStatus.className = '';
