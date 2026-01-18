@@ -8,14 +8,14 @@ export const siteConfig = {
 
   contact: {
     email: import.meta.env.PUBLIC_CONTACT_EMAIL || 'info@avengh.com',
-    phone: import.meta.env.PUBLIC_CONTACT_PHONE || '+233 3033 19900',
+    phone: import.meta.env.PUBLIC_CONTACT_PHONE || '+233 0000 00000',
     location: import.meta.env.PUBLIC_CONTACT_LOCATION || 'Community 9, Tema, Greater Accra, Ghana',
   },
 
   social: {
     linkedin: import.meta.env.PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/company/avengh',
     github: import.meta.env.PUBLIC_GITHUB_URL || 'https://github.com/avengha',
-    whatsapp: import.meta.env.PUBLIC_WHATSAPP_NUMBER || '233303319900',
+    whatsapp: import.meta.env.PUBLIC_WHATSAPP_NUMBER || '000000000000',
   },
 
   form: {
