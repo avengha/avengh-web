@@ -18,6 +18,18 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
+          PUBLIC_SITE_NAME: ${{ vars.PUBLIC_SITE_NAME }}
+          PUBLIC_COMPANY_NAME: ${{ vars.PUBLIC_COMPANY_NAME }}
+          PUBLIC_CONTACT_EMAIL: ${{ vars.PUBLIC_CONTACT_EMAIL }}
+          PUBLIC_CONTACT_PHONE: ${{ vars.PUBLIC_CONTACT_PHONE }}
+          PUBLIC_CONTACT_LOCATION: ${{ vars.PUBLIC_CONTACT_LOCATION }}
+          PUBLIC_LINKEDIN_URL: ${{ vars.PUBLIC_LINKEDIN_URL }}
+          PUBLIC_GITHUB_URL: ${{ vars.PUBLIC_GITHUB_URL }}
+          PUBLIC_WHATSAPP_NUMBER: ${{ vars.PUBLIC_WHATSAPP_NUMBER }}
+          PUBLIC_FORM_ACTION: ${{ secrets.PUBLIC_FORM_ACTION }}
+          PUBLIC_DEFAULT_OG_IMAGE: ${{ vars.PUBLIC_DEFAULT_OG_IMAGE }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1

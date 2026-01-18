@@ -7,19 +7,19 @@ export const siteConfig = {
   companyName: import.meta.env.PUBLIC_COMPANY_NAME || 'Avengh (Avengers Fist)',
 
   contact: {
-    email: import.meta.env.PUBLIC_CONTACT_EMAIL || 'info@avengh.com',
-    phone: import.meta.env.PUBLIC_CONTACT_PHONE || '+233 0000 00000',
-    location: import.meta.env.PUBLIC_CONTACT_LOCATION || '',
+    email: import.meta.env.PUBLIC_CONTACT_EMAIL,
+    phone: import.meta.env.PUBLIC_CONTACT_PHONE,
+    location: import.meta.env.PUBLIC_CONTACT_LOCATION,
   },
 
   social: {
-    linkedin: import.meta.env.PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/company/avengh',
-    github: import.meta.env.PUBLIC_GITHUB_URL || 'https://github.com/avengha',
-    whatsapp: import.meta.env.PUBLIC_WHATSAPP_NUMBER || '000000000000',
+    linkedin: import.meta.env.PUBLIC_LINKEDIN_URL,
+    github: import.meta.env.PUBLIC_GITHUB_URL,
+    whatsapp: import.meta.env.PUBLIC_WHATSAPP_NUMBER,
   },
 
   form: {
-    action: import.meta.env.PUBLIC_FORM_ACTION || 'https://formspree.io/f/mjkejvny',
+    action: import.meta.env.PUBLIC_FORM_ACTION,
   },
 
   seo: {
