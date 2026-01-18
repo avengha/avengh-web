@@ -131,7 +131,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 </footer>
 
 <script>
-    import "../scripts/main-scripts.js";
+    import { initializeScripts } from "../scripts/main-scripts.js";
+
+    // Initialize scripts
+    // Check if DOM is already loaded (script loaded after DOMContentLoaded)
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeScripts);
+    } else {
+        // DOM is already loaded, initialize immediately
+        initializeScripts();
+    }
+
+    // Re-initialize on Astro page swap (for View Transitions)
+    document.addEventListener('astro:page-load', initializeScripts);
 </script>
 </body>
 </html>

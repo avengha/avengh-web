@@ -1,6 +1,14 @@
 
+// Track if scripts have been initialized to prevent duplicate event listeners
+let scriptsInitialized = false;
 
-function initializeScripts() {
+export function initializeScripts() {
+    // Prevent duplicate initialization
+    if (scriptsInitialized) {
+        return;
+    }
+    scriptsInitialized = true;
+
     // Mobile menu functionality
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileNav = document.querySelector('.mobile-nav');
@@ -316,8 +324,3 @@ function initializeScripts() {
     }
 }
 
-// Initialize on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', initializeScripts);
-
-// Re-initialize on Astro page swap (for View Transitions)
-document.addEventListener('astro:page-load', initializeScripts);
