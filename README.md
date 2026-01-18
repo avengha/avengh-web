@@ -1,43 +1,94 @@
-# Astro Starter Kit: Minimal
+# Avengh (Avengers Fist)
 
-```sh
-npm create astro@latest -- --template minimal
-```
+The official website for Avengh, built with [Astro](https://astro.build).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Overview
 
-## 🚀 Project Structure
+Avengh is a modern, performance-focused corporate website showcasing services, portfolio, and company information. The site is statically generated for optimal speed and SEO.
 
-Inside of your Astro project, you'll see the following folders and files:
+## ✨ Features
+
+- **Modern Tech Stack**: Built with Astro 5 and TypeScript.
+- **Responsive Design**: Mobile-first approach with custom CSS.
+- **Performance**: Zero-JS by default (where possible) for fast page loads.
+- **Components**:
+    - Hero Section
+    - Solutions & Services
+    - Portfolio & Case Studies
+    - Company Timeline
+    - Team Profiles
+    - FAQ & Contact Forms
+
+## 📂 Project Structure
 
 ```text
 /
-├── public/
+├── public/             # Static assets (images, icons, etc.)
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/     # Reusable UI components (Hero, Team, etc.)
+│   ├── config/         # Site configuration (site.ts)
+│   ├── layouts/        # Page layouts (Layout.astro)
+│   ├── pages/          # File-based routing (index.astro, 404.astro)
+│   ├── scripts/        # Client-side JavaScript
+│   ├── styles/         # Global styles (accessibility, transitions)
+│   └── types/          # TypeScript type definitions
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🛠️ Getting Started
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Prerequisites
 
-Any static assets, like images, can be placed in the `public/` directory.
+- Node.js (v18 or higher)
+- npm
 
-## 🧞 Commands
+### Installation
 
-All commands are run from the root of the project, from a terminal:
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Development
 
-## 👀 Want to learn more?
+Start the local development server:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
+npm run dev
+```
+
+The site will be available at `http://localhost:4321`.
+
+### Build
+
+Build the project for production:
+
+```bash
+npm run build
+```
+
+The output will be in the `dist/` folder.
+
+## ⚙️ Configuration
+
+Site configuration is managed in `src/config/site.ts`.
+
+Environment variables are supported (prefixed with `PUBLIC_`). See `.env.example` (if available) or `src/config/site.ts` for reference.
+
+- `PUBLIC_SITE_URL`
+- `PUBLIC_SITE_NAME`
+- `PUBLIC_COMPANY_NAME`
+- `PUBLIC_CONTACT_EMAIL`
+- `PUBLIC_CONTACT_PHONE`
+- `PUBLIC_CONTACT_LOCATION`
+- `PUBLIC_LINKEDIN_URL`
+- `PUBLIC_GITHUB_URL`
+- `PUBLIC_WHATSAPP_NUMBER`
+
+## 📝 License
+
+[Add License Information Here]
