@@ -131,14 +131,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 </footer>
 
 <script>
-    import { initializeScripts } from "../scripts/main-scripts.js";
+    import { initializeScripts } from "../scripts/main.js";
 
     //  Initialize on first load
     initializeScripts();
 </script>
 
 <script>
-    import { initializeScripts } from "../scripts/main-scripts.js";
+    import { initializeScripts } from "../scripts/main.js";
 
     // Re-initialize on every page navigation (View Transitions)
     document.addEventListener('astro:page-load', initializeScripts);
