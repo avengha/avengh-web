@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import abigailImg from '/public/assets/img/team/Abigail.jpg';
+import josephImg from '/public/assets/img/team/Joseph.jpg';
+import jibrilImg from '/public/assets/img/team/Jibril.jpg';
+import phylImg from '/public/assets/img/team/Phyl.jpg';
+---
+
+<!-- Team Section -->
+<section class="showcase" id="team" aria-labelledby="team-title">
+  <h2 class="section-title" id="team-title">Our Expert <span>Development Team</span></h2>
+  <div class="hexagon-container">
+    <div class="hexagon">
+      <div class="hexagon-inner glass">
+        <Image
+          src={abigailImg}
+          alt="Abigail Woolley, Co-founder & Machine Learning Engineer"
+          class="team-photo"
+          width={400}
+          height={400}
+          loading="lazy"
+        />
+        <h4>Abigail Woolley</h4>
+        <p>Co-founder & Machine Learning Engineer</p>
+      </div>
+    </div>
+    <div class="hexagon">
+      <div class="hexagon-inner glass">
+        <Image
+          src={josephImg}
+          alt="Joseph Afriyie Attakorah, Software Engineer"
+          class="team-photo"
+          width={400}
+          height={400}
+          loading="lazy"
+        />
+        <h4>Joseph Afriyie Attakorah</h4>
+        <p>Software Engineer</p>
+      </div>
+    </div>
+    <div class="hexagon">
+      <div class="hexagon-inner glass">
+        <Image
+          src={jibrilImg}
+          alt="Jibril Richter, Software Engineer"
+          class="team-photo"
+          width={400}
+          height={400}
+          loading="lazy"
+        />
+        <h4>Jibril Richter</h4>
+        <p>Software Engineer</p>
+      </div>
+    </div>
+    <div class="hexagon">
+      <div class="hexagon-inner glass">
+        <Image
+          src={phylImg}
+          alt="Philomena Ahinei Amartey, Project Manager"
+          class="team-photo"
+          width={400}
+          height={400}
+          loading="lazy"
+        />
+        <h4>Philomena Ahinei Amartey</h4>
+        <p>Project Manager</p>
+      </div>
+    </div>
+  </div>
+</section>

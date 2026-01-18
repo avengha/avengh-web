@@ -9,6 +9,7 @@
     --text-light: #ffffff;
     --text-medium: #d1d1d1;
     --text-dark: #cccccc;
+    --accessibility-glow: #1a1a1a;
 }
 
  * {
@@ -790,35 +791,35 @@
 /* Removed .feature-visual::before and .feature-visual:hover::before to simplify the code.
 The gradient overlay is now applied directly to the background-image property. */
  #solutions .feature-row:nth-child(1) .feature-visual {
-    --bg-image: url('../img/capabilities/web-app.jpg');
+    --bg-image: url('/assets/img/capabilities/web-app.jpg');
 }
  #solutions .feature-row:nth-child(2) .feature-visual {
-    --bg-image: url('../img/capabilities/mobile-app.jpg');
+    --bg-image: url('/assets/img/capabilities/mobile-app.jpg');
 }
  #solutions .feature-row:nth-child(3) .feature-visual {
-    --bg-image: url('../img/capabilities/ai-integration.jpg');
+    --bg-image: url('/assets/img/capabilities/ai-integration.jpg');
 }
 
 /* About Section Images */
 #about .feature-row:nth-child(1) .feature-visual {
-    --bg-image: url('../img/about/our-foundation.jpg');
+    --bg-image: url('/assets/img/about/our-foundation.jpg');
 }
 #about .feature-row:nth-child(2) .feature-visual {
-    --bg-image: url('../img/about/our-app-dev.jpg');
+    --bg-image: url('/assets/img/about/our-app-dev.jpg');
 }
 
 /* Detailed Services Section Images */
 #services-detail .feature-row:nth-child(1) .feature-visual {
-    --bg-image: url('../img/detailed/web-app.jpg');
+    --bg-image: url('/assets/img/detailed/web-app.jpg');
 }
 #services-detail .feature-row:nth-child(2) .feature-visual {
-    --bg-image: url('../img/detailed/mobile-app.jpg');
+    --bg-image: url('/assets/img/detailed/mobile-app.jpg');
 }
 #services-detail .feature-row:nth-child(3) .feature-visual {
-    --bg-image: url('../img/detailed/ai-ml.jpg');
+    --bg-image: url('/assets/img/detailed/ai-ml.jpg');
 }
 #services-detail .feature-row:nth-child(4) .feature-visual {
-    --bg-image: url('../img/detailed/wordpress.jpg');
+    --bg-image: url('/assets/img/detailed/wordpress.jpg');
 }
  .feature-icon {
      font-size: 4rem;

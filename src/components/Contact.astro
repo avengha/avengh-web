@@ -1,0 +1,50 @@
+---
+import { siteConfig } from '../config/site';
+---
+
+<!-- Section 5: Contact (Connect) -->
+<section class="contact" id="connect" aria-labelledby="connect-title">
+  <div class="contact-container">
+    <div class="contact-info glass">
+      <h3 id="connect-title">ESTABLISH CONNECTION</h3>
+      <p>Ready to transform your business with custom software? Our expert development team is standing by to guide you
+        through the possibilities of digital transformation.</p>
+      <p>Connect with us today and let us initiate your journey into scalable, innovative software solutions tailored to
+        your unique business needs.</p>
+      <p><strong>Location: </strong>{siteConfig.contact.location}<br>
+        <strong>Email:</strong> {siteConfig.contact.email}<br>
+        <strong>Phone:</strong> {siteConfig.contact.phone}</p>
+      <div class="social-links">
+        <a href={siteConfig.social.linkedin} target="_blank" rel="noopener" class="glass"
+           aria-label="LinkedIn">📡</a>
+        <a href="/" class="glass" aria-label="Website">🌐</a>
+        <a href={`https://wa.me/${siteConfig.social.whatsapp}`} target="_blank" rel="noopener" class="glass" aria-label="WhatsApp">💬</a>
+        <a href={`mailto:${siteConfig.contact.email}`} class="glass" aria-label="Email">📧</a>
+      </div>
+    </div>
+
+    <div class="contact-form glass">
+      <form id="contact-form" action={siteConfig.form.action} method="POST" aria-label="Contact form">
+        <div class="form-group">
+          <label for="name" class="visually-hidden">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required aria-required="true" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="email" class="visually-hidden">Business Email</label>
+          <input type="email" id="email" name="email" placeholder="Business Email" required aria-required="true" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="subject" class="visually-hidden">Project Type</label>
+          <input type="text" id="subject" name="subject" placeholder="Project Type" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="message" class="visually-hidden">Project Details & Requirements</label>
+          <textarea id="message" name="message" rows="5" placeholder="Project Details & Requirements"
+                    required aria-required="true"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Project Inquiry</button>
+        <div id="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,6 @@
-import '../css/main-style.css';
 
-document.addEventListener('DOMContentLoaded', () => {
+
+function initializeScripts() {
     // Mobile menu functionality
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileNav = document.querySelector('.mobile-nav');
@@ -8,12 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileMenuToggle && mobileNav) {
         mobileMenuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
+            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
             mobileMenuToggle.classList.toggle('active');
             mobileNav.classList.toggle('active');
         });
 
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
                 mobileMenuToggle.classList.remove('active');
                 mobileNav.classList.remove('active');
             });
@@ -21,8 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.addEventListener('click', (e) => {
             if (!mobileNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
                 mobileMenuToggle.classList.remove('active');
                 mobileNav.classList.remove('active');
+            }
+        });
+
+        // Handle Escape key to close mobile menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                mobileMenuToggle.focus();
             }
         });
     }
@@ -300,4 +314,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
+}
+
+// Initialize on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', initializeScripts);
+
+// Re-initialize on Astro page swap (for View Transitions)
+document.addEventListener('astro:page-load', initializeScripts);
