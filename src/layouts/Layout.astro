@@ -1,5 +1,5 @@
 ---
-import '../styles/main-style.css';
+import '../styles/global.css';
 import '../styles/accessibility.css';
 import '../styles/transitions.css';
 import { ViewTransitions } from 'astro:transitions';
@@ -131,7 +131,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 </footer>
 
 <script>
-    import "../scripts/main-scripts.js";
+    import { initializeScripts } from "../scripts/main.js";
+
+    //  Initialize on first load
+    initializeScripts();
+</script>
+
+<script>
+    import { initializeScripts } from "../scripts/main.js";
+
+    // Re-initialize on every page navigation (View Transitions)
+    document.addEventListener('astro:page-load', initializeScripts);
 </script>
 </body>
 </html>
