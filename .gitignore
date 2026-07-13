@@ -25,7 +25,6 @@ pnpm-debug.log*
 .vscode
 GUIDELINES
 .vercel
-.astro
 .mcp.json
 CLAUDE.md
 GEMINI.md
