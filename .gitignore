@@ -24,3 +24,9 @@ pnpm-debug.log*
 .idea/
 .vscode
 GUIDELINES
+.vercel
+.astro
+.mcp.json
+CLAUDE.md
+GEMINI.md
+
