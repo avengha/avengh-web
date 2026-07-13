@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import '../styles/accessibility.css';
 import '../styles/transitions.css';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import type { LayoutProps } from '../types/components';
 import { siteConfig } from '../config/site';
 
@@ -52,7 +52,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="manifest" href="/site.webmanifest"/>
   <link rel="icon" href="/favicon.ico" sizes="any"/>
 
-  <ViewTransitions />
+  <ClientRouter />
 </head>
 <body>
 <!-- Skip to main content link for accessibility -->
